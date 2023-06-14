@@ -24,15 +24,18 @@
   color: white;
 }
 
+.App-header button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+  padding: 5px 20px;
+}
+
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.metamask-logo {
+  width: 30px;
 }
