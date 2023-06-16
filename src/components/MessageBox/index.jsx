@@ -6,7 +6,7 @@ import { WalletContext } from "../../contexts/wallet";
 
 const MessageBox = (message) => {
   const walletContext = useContext(WalletContext);
-  const isMyMessage = message.sender === walletContext.walletAddress[0];
+  const isMyMessage = message.sender === walletContext.walletAddress?.[0];
 
   return (
     <Row align={'bottom'} justify={isMyMessage ? 'end' : 'start'} style={{ width: '100%', paddingInline: '10px' }}>
