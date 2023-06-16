@@ -1,0 +1,41 @@
+.contact-list {
+  overflow-y: auto;
+  height: 100%;
+}
+
+.ant-list-items {
+  background-color: ghostwhite;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+
+  .ant-list-item.active,
+  .ant-list-item:hover {
+    background-color: antiquewhite;
+  }
+}
+
+:where(.css-dev-only-do-not-override-12jzuas).ant-list .ant-list-item .ant-list-item-meta {
+  align-items: baseline;
+}
+
+.ant-list-item-meta {
+  margin-left: 10px;
+}
+
+.ant-list-item-meta-title {
+  text-align: left;
+}
+
+.ant-list-item-meta-description {
+  text-align: left;
+}
+
+.ant-avatar {
+  box-shadow: 2px 2px 10px #0000000f;
+}
+
+.ant-tooltip-inner {
+  width: fit-content;
+  word-wrap: normal
+}

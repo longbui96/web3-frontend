@@ -1,0 +1,16 @@
+.ant-card {
+  max-width: 500px;
+
+
+  .ant-card-head {
+    min-height: 35px;
+    padding-inline: 15px;
+    padding-top: 5px;
+    border-bottom: none;
+  }
+
+  .ant-card-body {
+    padding: 0 15px 10px 15px;
+    word-wrap: break-word;
+  }
+}
