@@ -1,7 +1,7 @@
-import { useContext, useEffect } from "react";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useContext, useEffect } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
 
-import { WalletContext } from "../contexts/wallet";
+import { WalletContext } from '../contexts/wallet';
 
 function MainLayout() {
   const walletContext = useContext(WalletContext);
@@ -9,9 +9,9 @@ function MainLayout() {
 
   useEffect(() => {
     if (!walletContext.walletAddress) {
-      navigate('/connect')
+      navigate('/connect');
     }
-  }, [])
+  }, []);
 
   return (
     <div style={{ width: 1200, height: '100%', margin: '0px auto' }}>

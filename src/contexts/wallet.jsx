@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const WalletContext = React.createContext({});
 
@@ -12,7 +12,11 @@ export const WalletProvider = ({ children }) => {
     if (!walletAddress) {
       navigate('/connect');
     }
-  }, [walletAddress])
-  
-  return <WalletContext.Provider value={{walletAddress, setWalletAddress}}>{children}</WalletContext.Provider>;
+  }, [walletAddress]);
+
+  return (
+    <WalletContext.Provider value={{ walletAddress, setWalletAddress }}>
+      {children}
+    </WalletContext.Provider>
+  );
 };

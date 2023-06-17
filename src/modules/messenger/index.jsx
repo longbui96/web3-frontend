@@ -1,21 +1,22 @@
-import { Button, Layout, Row, Col } from "antd";
-import { MetamaskButton } from "../../components/MetamaskButton";
-import { useContext, useEffect, useState } from "react";
-import { WalletContext } from "../../contexts/wallet";
-import { LogoutOutlined } from "@ant-design/icons";
+import { useContext, useEffect, useState } from 'react';
+import { Button, Layout, Row, Col } from 'antd';
+import { LogoutOutlined } from '@ant-design/icons';
+import Web3 from 'web3';
+
+import { WalletContext } from '../../contexts/wallet';
+import MetamaskButton from '../../components/MetamaskButton';
+import ContactList from '../../components/ContactList';
+import ChatRoom from '../../components/ChatRoom';
 
 import './index.scss';
-import Web3 from "web3";
-import ContactList from "../../components/ContactList";
-import ChatRoom from "../../components/ChatRoom";
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 
 const headerStyle = {
   padding: 0,
   backgroundColor: 'transparent',
   lineHeight: '20px',
-  marginBottom: '20px'
+  marginBottom: '20px',
 };
 
 const contentStyle = {
@@ -36,9 +37,9 @@ const Messenger = () => {
         web3.eth.getBalance(walletAddress).then((weiUnit) => {
           setBalance(web3.utils.fromWei(weiUnit, 'ether'));
         });
-      })
+      });
     }
-  }, [walletContext.walletAddress])
+  }, [walletContext.walletAddress]);
 
   return (
     <Layout style={{ backgroundColor: 'transparent', marginBlock: '20px' }}>
@@ -50,10 +51,11 @@ const Messenger = () => {
         <Col>
           <Button
             icon={<LogoutOutlined />}
-            style={{ height: "52px", width: "50px", marginLeft: 10 }}
+            style={{ height: '52px', width: '50px', marginLeft: 10 }}
             onClick={() => {
               walletContext.setWalletAddress(null);
-            }} />
+            }}
+          />
         </Col>
       </Row>
       <Content style={contentStyle}>
@@ -67,7 +69,7 @@ const Messenger = () => {
         </Row>
       </Content>
     </Layout>
-  )
-}
+  );
+};
 
 export default Messenger;

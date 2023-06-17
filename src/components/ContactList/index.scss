@@ -15,7 +15,9 @@
   }
 }
 
-:where(.css-dev-only-do-not-override-12jzuas).ant-list .ant-list-item .ant-list-item-meta {
+:where(.css-dev-only-do-not-override-12jzuas).ant-list
+  .ant-list-item
+  .ant-list-item-meta {
   align-items: baseline;
 }
 
@@ -37,5 +39,5 @@
 
 .ant-tooltip-inner {
   width: fit-content;
-  word-wrap: normal
+  word-wrap: normal;
 }
