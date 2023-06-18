@@ -8,7 +8,7 @@ import './index.scss';
 
 const MessageBox = (message) => {
   const walletContext = useContext(WalletContext);
-  const isMyMessage = message.sender === walletContext.walletAddress?.[0];
+  const isMyMessage = message.sender === walletContext.walletAddress;
 
   return (
     <Row

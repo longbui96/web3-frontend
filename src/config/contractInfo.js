@@ -1,57 +1,89 @@
-export const ContractAddress = '0xd8b934580fcE35a11B58C6D73aDeE468a2833fa8';
+export const ContractAddress = '0xddaAd340b0f1Ef65169Ae5E41A8b10776a75482d';
 export const ContractABI = [
   {
-    anonymous: false,
-    inputs: [
-      {
-        indexed: true,
-        internalType: 'address',
-        name: 'from',
-        type: 'address',
-      },
-      {
-        indexed: false,
-        internalType: 'string',
-        name: 'message',
-        type: 'string',
-      },
-      {
-        indexed: false,
-        internalType: 'address',
-        name: 'to',
-        type: 'address',
-      },
-      {
-        indexed: false,
-        internalType: 'string',
-        name: 'timestamp',
-        type: 'string',
-      },
-    ],
-    name: 'message',
-    type: 'event',
-  },
-  {
     inputs: [
       {
         internalType: 'address',
-        name: '_to',
+        name: 'receiver',
         type: 'address',
       },
       {
         internalType: 'string',
-        name: '_message',
-        type: 'string',
-      },
-      {
-        internalType: 'string',
-        name: 'time',
+        name: '_msg',
         type: 'string',
       },
     ],
     name: 'sendMessage',
     outputs: [],
     stateMutability: 'nonpayable',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'receiver',
+        type: 'address',
+      },
+    ],
+    name: 'readMessage',
+    outputs: [
+      {
+        components: [
+          {
+            internalType: 'address',
+            name: 'sender',
+            type: 'address',
+          },
+          {
+            internalType: 'uint256',
+            name: 'timestamp',
+            type: 'uint256',
+          },
+          {
+            internalType: 'string',
+            name: 'msg',
+            type: 'string',
+          },
+        ],
+        internalType: 'struct Database.message[]',
+        name: '',
+        type: 'tuple[]',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [],
+    name: 'testString',
+    outputs: [
+      {
+        internalType: 'string',
+        name: '',
+        type: 'string',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
+  },
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'receiver',
+        type: 'address',
+      },
+    ],
+    name: 'whoami',
+    outputs: [
+      {
+        internalType: 'address',
+        name: '',
+        type: 'address',
+      },
+    ],
+    stateMutability: 'pure',
     type: 'function',
   },
 ];

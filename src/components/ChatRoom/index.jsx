@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Col, Input, Row } from 'antd';
 import { SendOutlined } from '@ant-design/icons';
+import { ethers } from 'ethers';
 
 import MessageBox from '../MessageBox';
 
 import './index.scss';
+import { WalletContext } from '../../contexts/wallet';
 
 const mockMessages = [
   {
@@ -39,7 +41,16 @@ const mockMessages = [
 const { Search } = Input;
 
 const ChatRoom = () => {
+  const walletContext = useContext(WalletContext);
+  // eslint-disable-next-line no-unused-vars
   const [messageBoxes, setMessageBoxes] = useState(mockMessages);
+
+  const getMessage = async () => {
+    if (walletContext.contract) {
+      const result = await walletContext.contract.whoami();
+      console.log(result);
+    }
+  };
 
   return (
     <div className="container">
@@ -56,15 +67,15 @@ const ChatRoom = () => {
               gap: 15,
             }}
           >
-            {messageBoxes.map((e) => (
-              <MessageBox {...e} />
+            {messageBoxes.map((details) => (
+              <MessageBox {...details} />
             ))}
           </div>
         </Col>
         <Col span={24} style={{ height: '40px' }}>
           <Search
             placeholder="Input your message"
-            // onSearch={onSearch}
+            onSearch={getMessage}
             size="large"
             enterButton={<SendOutlined />}
           />
